@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 			return 0;
 		}
 
-		unsigned int secondsUptime = GetTickCount() / 1000;
+		ULONGLONG secondsUptime = GetTickCount64() / 1000;
 		if (options.showLongFormat)
 			cout << "Windows has been running for " << FormatSecondsLong(secondsUptime) << endl;
 		else

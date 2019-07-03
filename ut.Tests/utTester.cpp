@@ -86,6 +86,24 @@ namespace utTests
 			Assert::IsTrue(str.find("second") == string::npos);
 		}
 
+		TEST_METHOD(FormatSecondsLong_ThousandDays_ReturnsExpected)
+		{
+			string str = FormatSecondsLong(SECONDS_PER_DAY*1000);
+			Assert::IsTrue(str.find("1000 days") != string::npos);
+			Assert::IsTrue(str.find("hour") == string::npos);
+			Assert::IsTrue(str.find("minute") == string::npos);
+			Assert::IsTrue(str.find("second") == string::npos);
+		}
+
+		TEST_METHOD(FormatSecondsLong_HunderdThousandDays_ReturnsExpected)
+		{
+			string str = FormatSecondsLong(SECONDS_PER_DAY * 100000);
+			Assert::IsTrue(str.find("100000 days") != string::npos);
+			Assert::IsTrue(str.find("hour") == string::npos);
+			Assert::IsTrue(str.find("minute") == string::npos);
+			Assert::IsTrue(str.find("second") == string::npos);
+		}
+
 		TEST_METHOD(FormatSecondsLong_DayHourMinuteAndSecond_ReturnsExpected)
 		{
 			string str = FormatSecondsLong(SECONDS_PER_DAY + SECONDS_PER_HOUR + SECONDS_PER_MINUTE + SECONDS_PER_SECOND);
